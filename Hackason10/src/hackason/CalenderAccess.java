@@ -81,7 +81,6 @@ public class CalenderAccess extends HttpServlet{
         int lastday;
         //  カレンダーの取得
         Calendar cal = Calendar.getInstance();
-
         // 月初めの曜日(日-> 1)
         cal.set(year, month - 1, 1);
         startday = cal.get(Calendar.DAY_OF_WEEK);
@@ -129,12 +128,12 @@ public class CalenderAccess extends HttpServlet{
     	StringBuilder sb = new StringBuilder();
         int lastday;
         Calendar cal = Calendar.getInstance();
-        cal.set(year, month - 1, 1);
+        cal.set(year, month -1, 1);
         cal.add(Calendar.MONTH, 1);
         cal.add(Calendar.DATE, -1);
         lastday = cal.get(Calendar.DATE);
 
-        sb.append("<form action=\"SelectDay\" method=\"get\">");
+        sb.append("<form action=\"OneDay.jsp\" method=\"get\">");
 
         sb.append("<select id=\"day\" name=\"day\">\n");
 
@@ -159,7 +158,7 @@ public class CalenderAccess extends HttpServlet{
 //    	セレクトタグ
     	sb.append("<select id=\"year\" name=\"year\">");
 //    	選択肢を追加現在の年を選択
-    	for(int i = 0; i <= year+1; i++){
+    	for(int i = year-1; i <= year+1; i++){
 	    	sb.append("<option value=\"" + i + "\"");
 	    	if(i == year){
 	    		sb.append("selected");
@@ -167,7 +166,7 @@ public class CalenderAccess extends HttpServlet{
 	    	sb.append(">" + i + "年</option>");
     	}
     	sb.append("</select>");
-    	sb.append("<select id=\"month\" name=\"month\"");
+    	sb.append("<select id=\"month\" name=\"month\">");
     	for(int i = 1;i<=12;i++){
     		sb.append("<option value=\"" + i + "\"");
     		if(i==month){
@@ -176,7 +175,7 @@ public class CalenderAccess extends HttpServlet{
     		sb.append(">" + i + "月</option>");
     	}
     	sb.append("</select><br/><br/>");
-    	sb.append("<input type=\"submit\" id=\"ok\" name=\"ok\" value=\"送信\"/>");
+    	sb.append("<input type=\"submit\" id=\"ok\" name=\"ok\" value=\"カレンダーの変更\"/>");
     	sb.append("</form>");
     	request.setAttribute("selectYearMonth", sb);
     }
