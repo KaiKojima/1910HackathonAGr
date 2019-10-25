@@ -39,4 +39,14 @@
     <servlet-name>TaskAdd</servlet-name>
     <url-pattern>/TaskAdd</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OnedayServlet</display-name>
+    <servlet-name>OnedayServlet</servlet-name>
+    <servlet-class>hackason.OnedayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OnedayServlet</servlet-name>
+    <url-pattern>/OnedayServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
