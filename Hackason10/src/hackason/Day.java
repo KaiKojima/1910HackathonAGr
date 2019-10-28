@@ -4,4 +4,7 @@ public class Day {
 	int remainingTime = 24*60;
 
 	// ABCDEFG
+	public void Hello() {
+		System.out.println("Hello World!");
+	}
 }
